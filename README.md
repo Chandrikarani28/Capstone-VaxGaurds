@@ -1,6 +1,8 @@
 # VaxRisk - Analysis of VAERS Reports for Vaccine Safety Assessment
 ## Team - Chandrikarani Vaidya, Sai Ganesh Donka and Terala Bhuvana Chandrika.
 
+![image](https://github.com/user-attachments/assets/998493df-d465-4fa7-bef5-c8c7e188f618)
+
 ## ABSTRACT
 VaxRisk is a data science project that analyzes Vaccine Adverse Event Reporting System (VAERS) data to assess and predict the risk of adverse events (AEs) associated with vaccines. The project focuses on four key vaccines: COVID-19, Varicella-Zoster (VARZOS), Influenza (FLU), and Pneumococcal vaccine polyvalent (PPV). Using machine learning techniques, VaxRisk aims to develop a predictive model for serious AEs based on patient demographics, symptoms, and health history. The project's ultimate goal is to create a tool that helps users and healthcare professionals assess vaccine safety and make informed decisions.
 
