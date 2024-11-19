@@ -61,6 +61,10 @@ Symptom Analysis: The top reported symptoms were pyrexia (fever) and headache, f
 Manufacturer Analysis: Pfizer/BioNTech and Moderna had the highest number of reports, likely due to their major role in COVID-19 vaccinations.
 
 # Phase 2
+In Phase 2 of our project, we have conducted a thorough analysis of the data and eliminated redundancies identified during Phase 1. As a result, we have produced an updated data cleaning file, titled "Basic_cleaning&EDA.ipynb." Additionally, we have developed separate machine learning notebooks for each vaccine (ML_*), complemented by a dedicated file for the target variable, named "Top4Vaccine(Target variable).ipynb." 
+Here is the link for cleaned csv files
+https://umbc.box.com/s/sl7mthzhw97dvg8hnjpsf4r3sr7xk0vb
+
 Phase 2 involved comprehensive data preparation to enable precise predictive analysis of adverse events(AEs). Key processes included: Categorical Encoding, Text Cleaning and data filtering focusing in four vaccines.
 
 ## Feature Engineering and Selection
