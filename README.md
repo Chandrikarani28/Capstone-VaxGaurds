@@ -105,3 +105,69 @@ Model Enhancement: Additional machine learning algorithms and SMOTE will be appl
 User Interface Development: Plans include building a user-friendly interface for healthcare professionals and the public to input vaccination data and assess potential AE severity.
 
 Algorithm Benchmarking: Further comparisons will be conducted to determine the most effective predictive model.
+
+# Phase 3
+
+## Analysis Approach
+### Individual Vaccine Analysis:
+Conducted Exploratory Data Analysis (EDA) and Machine Learning (ML) on the top 4 vaccines separately.
+CatBoost algorithm with class weights outperformed other algorithms and was chosen for all 4 vaccines.
+### Threshold Experiments:
+Conducted experiments with both default thresholds and threshold adjustments.
+Default threshold yielded higher accuracy and was selected for further analysis.
+### Combined Dataset Analysis:
+Used the combined dataset of four vaccines to train a comprehensive model.
+Employed CatBoost with class weights for the combined dataset analysis.
+
+## Model Training and Evaluation
+The VaxRisk project employs a sophisticated machine learning pipeline to analyze adverse events related to vaccines using VAERS data. The model training and evaluation process involves several key steps.
+
+## 1. Data Preprocessing
+### Text Transformation
+The pipeline uses TfidfVectorizer to transform text columns, including 'SYMPTOM_TEXT', 'OTHER_MEDS', 'CUR_ILL', 'HISTORY', and 'ALLERGIES'. This process converts the text data into numerical features that can be used by the machine learning model.
+### Feature Engineering
+A ColumnTransformer is applied to process both text and numerical features simultaneously. This ensures that all relevant information from various data types is incorporated into the model.
+
+## 2. Model Architecture
+The chosen model for this task is CatBoost, a gradient boosting library that performs well on categorical and text data. The model pipeline consists of two main components: TF-IDF Transformation and CatBoost Classifier
+
+## 3. Training Process
+The training data is split into a 70% training set and a 30% test set, stratified by the target variable 'SERIOUS'. This ensures that both sets have a similar distribution of serious and non-serious cases.
+To address class imbalance, the model incorporates:
+1. Computed class weights
+2. Scale_pos_weight parameter in CatBoost
+These techniques help the model learn effectively from both majority and minority classes.
+
+## 4. Evaluation Metrics
+While specific evaluation results are not provided in the given context, typical metrics for such a classification task would include: Accuracy, Precision, Recall, F1-score, and Area Under the ROC Curve (AUC-ROC).
+These metrics would be calculated using the predictions on the test set to assess the model's performance in identifying serious adverse events.
+
+# User Interface
+To make the VaxRisk project accessible and user-friendly, a graphical user interface (GUI) has been developed using Gradio. This interface allows users to interact with the machine learning models and obtain predictions for vaccine adverse events.
+
+## Key Features
+### Input Fields
+The interface includes input fields for various patient characteristics and vaccine information, such as Age, Sex, Vaccine type, Medical history, Current medications, Allergies, Vaccine Manufacturers, etc
+### Text Analysis
+The interface incorporates text analysis capabilities for free-text fields like symptom descriptions and medical history, leveraging the TF-IDF vectorization used in the model.
+### Selection
+Users can choose which vaccine (VARZOS, COVID, PPV, Flu) and who is the manufacturer.
+### Prediction Output: After inputting the required information, the interface displays the predicted likelihood of a serious adverse event.
+
+## Implementation
+The user interface is implemented using the following technologies:
+1. Gradio: A Python library for quickly creating web-based interfaces for machine learning models.
+2. Pandas: Used for data manipulation and preprocessing of user inputs.
+3. Scikit-learn: Utilized for feature engineering steps consistent with the trained models.
+4. CatBoost: The underlying machine learning model used for predictions.
+
+## Deployment
+Gradio interfaces can be easily shared and deployed, facilitating collaboration and eventual distribution of the VaxRisk tool to healthcare professionals.
+
+## Future Work: Enhancing Adverse Event Prediction
+1. Expanding Data Sources: Electronic Health Records (EHR): Capture underreported AEs and link with clinical data.
+2. Social Media Analysis: Extract real-world insights about symptoms and side effects.
+3. Multi-Label Classification: Predict multiple symptom classes simultaneously. Use advanced deep learning to handle interdependent symptom labels.
+4. Domain-Specific Context: Use medical embeddings (e.g., UMLS, SNOMED CT) for better symptom-text analysis. Address challenges in interpreting complex medical jargon.
+5. Cross-Disciplinary Collaboration
+Partner with healthcare professionals for validation and refinement. Incorporate expert insights into model developm
